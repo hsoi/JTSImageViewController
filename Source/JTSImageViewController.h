@@ -221,6 +221,9 @@ extern CGFloat const JTSImageViewController_DefaultBackgroundBlurRadius;
 
 - (void)imageViewerWillAnimatePresentation:(JTSImageViewController *)imageViewer withContainerView:(UIView *)containerView duration:(CGFloat)duration;
 
+// Hsoi 2016-04-19 - https://github.com/jaredsinclair/JTSImageViewController/pull/60/
+- (void)imageViewerDidAnimatePresentation:(JTSImageViewController *)imageViewer withContainerView:(UIView *)containerView;
+
 - (void)imageViewer:(JTSImageViewController *)imageViewer willAdjustInterfaceForZoomScale:(CGFloat)zoomScale withContainerView:(UIView *)containerView duration:(CGFloat)duration;
 
 - (void)imageViewerWillBeginDismissal:(JTSImageViewController *)imageViewer withContainerView:(UIView *)containerView;

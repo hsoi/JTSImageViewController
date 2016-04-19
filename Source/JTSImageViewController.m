@@ -735,6 +735,11 @@ typedef struct {
                      
                      [weakSelf updateScrollViewAndImageViewForCurrentMetrics];
                      
+                     // Hsoi 2016-04-19 - https://github.com/jaredsinclair/JTSImageViewController/pull/60/
+                     if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerDidAnimatePresentation:withContainerView:)]) {
+                         [weakSelf.animationDelegate imageViewerDidAnimatePresentation:weakSelf withContainerView:weakSelf.view];
+                     }
+                     
                      if (_flags.imageDownloadFailed) {
                          [weakSelf dismiss:YES];
                      } else {
@@ -842,6 +847,12 @@ typedef struct {
                  _flags.isAnimatingAPresentationOrDismissal = NO;
                  weakSelf.view.userInteractionEnabled = YES;
                  _flags.isPresented = YES;
+                 
+                 // Hsoi 2016-04-19 - https://github.com/jaredsinclair/JTSImageViewController/pull/60/
+                 if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerDidAnimatePresentation:withContainerView:)]) {
+                     [weakSelf.animationDelegate imageViewerDidAnimatePresentation:weakSelf withContainerView:weakSelf.view];
+                 }
+                 
                  if (_flags.imageDownloadFailed) {
                      [weakSelf dismiss:YES];
                  }
@@ -950,6 +961,12 @@ typedef struct {
                  _flags.isAnimatingAPresentationOrDismissal = NO;
                  weakSelf.view.userInteractionEnabled = YES;
                  _flags.isPresented = YES;
+                 
+                 // Hsoi 2016-04-19 - https://github.com/jaredsinclair/JTSImageViewController/pull/60/
+                 if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerDidAnimatePresentation:withContainerView:)]) {
+                     [weakSelf.animationDelegate imageViewerDidAnimatePresentation:weakSelf withContainerView:weakSelf.view];
+                 }
+                 
              }];
         });
     }];
